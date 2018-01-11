@@ -124,7 +124,6 @@ export default class CalendarPicker extends Component {
           maxDateValid.setDate(selectedStartDate.getDate() + maxDays);
 
           const newDate = new Date(maxDateValid.getFullYear(), maxDateValid.getMonth(), maxDateValid.getDate());
-
           this.setState({
             selectedEndDate: newDate,
           });
@@ -135,14 +134,14 @@ export default class CalendarPicker extends Component {
         }
   
       // propagate to parent date has changed
-      onDateChange(date, Utils.END_DATE, dayEndValid);
+      onDateChange(this.selectedEndDate, Utils.END_DATE, dayEndValid);
     } else {
       this.setState({
         selectedStartDate: date,
         selectedEndDate: null,
       });
       // propagate to parent date has changed
-      onDateChange(date, Utils.START_DATE, dayEndValid);
+      onDateChange(this.selectedStartDate, Utils.START_DATE, dayEndValid);
     }
   }
 
