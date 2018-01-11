@@ -127,21 +127,20 @@ export default class CalendarPicker extends Component {
           this.setState({
             selectedEndDate: newDate,
           });
+          onDateChange(newDate, Utils.END_DATE, dayEndValid);
         } else {
           this.setState({
             selectedEndDate: date,
           });
+          onDateChange(date, Utils.END_DATE, dayEndValid);
         }
-  
-      // propagate to parent date has changed
-      onDateChange(this.selectedEndDate, Utils.END_DATE, dayEndValid);
     } else {
       this.setState({
         selectedStartDate: date,
         selectedEndDate: null,
       });
       // propagate to parent date has changed
-      onDateChange(this.selectedStartDate, Utils.START_DATE, dayEndValid);
+      onDateChange(date, Utils.START_DATE, dayEndValid);
     }
   }
 
