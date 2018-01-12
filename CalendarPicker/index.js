@@ -118,7 +118,7 @@ export default class CalendarPicker extends Component {
           
         const days = moment(date).diff(moment(selectedStartDate), 'days');
         
-        if(days > maxDays) {
+        if(days > maxDays + 1) {
           dayEndValid = false;
           let maxDateValid = new Date(selectedStartDate);
           maxDateValid.setDate(selectedStartDate.getDate() + maxDays);
